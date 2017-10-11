@@ -1,8 +1,7 @@
 package fr.xebia.mower.service;
 
-import fr.xebia.mower.exception.FileParsingException;
+import fr.xebia.mower.exception.FileProcessingException;
 
-@FunctionalInterface
 public interface MowerService {
-	public void processInputData() throws FileParsingException;
+	public String manageMowers(String inputFilePath) throws FileProcessingException;
 }
