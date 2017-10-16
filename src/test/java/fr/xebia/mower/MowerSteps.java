@@ -35,8 +35,11 @@ public class MowerSteps {
 		actualResult = mowerService.manageMowers(inputFilePath);
 	}
 
-	@Then("^I should be told the final mowers positions and orientations is \"([^\"]*)\"$")
-	public void I_should_be_told_the_final_mowers_positions_and_orientations_is(String expectedResult) {
-		assertEquals(expectedResult, actualResult);
+	@Then("^I should be told the final mowers position is \"([^\"]*)\"\\ and \"([^\"]*)\"$")
+	public void I_should_be_told_the_final_mowers_position_is_n(String firstMowerPosition, String secondMowerPosition) {
+		String finalPositions[] = actualResult.split("\\r\\n|\\n|\\r");
+		assertEquals(firstMowerPosition, finalPositions[0]);
+		assertEquals(secondMowerPosition, finalPositions[1]);
 	}
+
 }
